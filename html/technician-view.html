@@ -3,20 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSS only -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="admin-styles.css">
-    <title>UEA Estates - Admin view</title>
+    <link rel="stylesheet" href="./css/global-styles.css">
+    <title>UEA Estates - Technician view</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">
-                <img src="UEA_2016_Logo.png" height="28" alt="UEA logo">
+                <img src="./images/UEA_2016_Logo.png" height="28" alt="UEA logo">
             </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -24,9 +23,8 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="#" class="nav-item nav-link active">Home</a>
-                    <a href="#" class="nav-item nav-link">Profile</a>
-                    <a href="#" class="nav-item nav-link">Messages</a>
-                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                    <a href="#" class="nav-item nav-link">In-progress jobs</a>
+                    <a href="#" class="nav-item nav-link">Completed jobs</a>
                 </div>
             </div>
         </div>
@@ -131,7 +129,46 @@
                 </button>
             </div>
         </div>
-        <h3 class="subtitle">Faults sent to a technician</h3>
+        <h3 class="subtitle">In-progress jobs</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="fault-card-text-2">
+                        <h3>Fault 2 type</h3>
+                        <p>Room, building</p>
+                        <p>Date and time</p>
+                    </div>
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="fault-card-text-2">
+                        <h3>Fault 2 type</h3>
+                        <p>Room, building</p>
+                        <p>Date and time</p>
+                    </div>
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="fault-card-text-2">
+                        <h3>Fault 2 type</h3>
+                        <p>Room, building</p>
+                        <p>Date and time</p>
+                    </div>
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="fault-card-text-2">
+                        <h3>Fault 2 type</h3>
+                        <p>Room, building</p>
+                        <p>Date and time</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <h3 class="subtitle">Completed jobs</h3>
         <div class="row">
             <div class="col-md-4">
                 <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -163,7 +200,6 @@
         </div>
     </div>
 </div>
-    <script src="admin-view.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

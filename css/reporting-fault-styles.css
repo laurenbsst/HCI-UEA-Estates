@@ -1,0 +1,27 @@
+.form-container {
+    background-color: #EEEEEE;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 3%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+form {
+    width: 90%;
+    padding-top: 20px;
+}
+select, input, textarea {
+    margin-bottom: 10px;
+}
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+textarea {
+    resize: none;
+}
+.content {
+    display: flex;
+    justify-content: center;
+}

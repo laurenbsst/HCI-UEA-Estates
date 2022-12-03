@@ -1,6 +1,7 @@
 html, body {
     font-family: 'Jost';
-    background-image: url('stacked-peaks-haikei.svg');
+    background-image: url('../images/stacked-peaks-haikei.svg');
+    background-attachment: fixed;
 }
 .fault-card {
     background-color: #EEEEEE;
