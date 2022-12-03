@@ -1,0 +1,37 @@
+html, body {
+    font-family: 'Jost';
+    background-image: url('stacked-peaks-haikei.svg');
+}
+.fault-card {
+    background-color: #EEEEEE;
+    margin-bottom: 20px;
+    border-radius: 3%;
+    border: none;
+    width: 300px;
+}
+.col-md-4 {
+    display: flex;
+    justify-content: center;
+}
+.title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.subtitle {
+    margin-bottom: 30px;
+}
+.icon-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.material-icons {
+    color: red;
+    padding: 2px;
+}
+.fault-card-text-2 {
+    padding-top: 20px;
+}
+.button-colour {
+    background-color: #65a391 !important;
+    border-color: #65a391 !important;
+}
