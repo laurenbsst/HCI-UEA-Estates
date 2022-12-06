@@ -43,7 +43,7 @@
             <div class="col-md-4">
                 <button class="fault-card" id="fault-card-1" data-bs-toggle="modal" data-bs-target="#fault-card-modal">
                     <div class="icon-container">
-                        <span class="material-icons">priority_high</span>
+                        <span id="main-icon"class="material-icons">priority_high</span>
                     </div>
                     <div class="fault-card-text">
                         <h3 id="fault-1-type">Light</h3>
@@ -63,16 +63,17 @@
                           <p id="modal-fault-time"></p>
                           <form>
                             <label for="status">Status</label>
-                            <select name="status" id="status">
+                            <select name="status" id="status-dropdown" onchange="hideIcon()">
                                 <option disabled selected value> -- select an option -- </option>
                                 <option>In-progress</option>
                                 <option>Complete</option>
                             </select>
                           </form>
+                          <span id="exclamation-icon" class="material-icons">priority_high</span>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary button-colour">Save changes</button>
+                          <button type="button" class="btn btn-primary button-colour" onclick="hideMainIcon()">Save changes</button>
                         </div>
                       </div>
                     </div>
@@ -178,6 +179,8 @@
                         <p>Date and time</p>
                     </div>
                 </button>
+            </div>
+            <div class="col-md-4 in-progress-jobs">
             </div>
         </div>
         <h3 class="subtitle">Completed jobs</h3>

@@ -38,3 +38,30 @@ $(document).on("click", "#fault-card-5", function () {
     $("#modal-fault-location").text(faultLocation);
     $("#modal-fault-time").text(faultTime);
 });
+
+function hideIcon() {
+    document.getElementById("exclamation-icon").style.display = 'none';
+}
+
+function hideMainIcon() {
+
+    var selected_value = $('#status-dropdown').val();
+
+    if(selected_value === null){
+        alert('You have not made any changes.');
+    }
+    else if(selected_value === 'In-progress') {
+        document.getElementById("fault-card-1").style.display = 'none';
+
+        var inProgressCard = document.createElement("button");
+        inProgressCard.className = 'fault-card';
+
+        inProgressCard.innerHTML = "Test";
+
+        var card = document.getElementById("fault-card-1");
+      
+        document.querySelector('.in-progress-jobs').appendChild(card);
+        card.style.display = 'block';
+        document.getElementById("main-icon").style.display = 'none';
+    }
+}
