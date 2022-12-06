@@ -70,8 +70,10 @@ function hideMainIcon() {
 
         var card = document.getElementById("fault-card-1");
         var modal = document.getElementById("fault-card-modal");
+        var subtitle = document.getElementById("unaddressed-faults");
 
         document.querySelector('.in-progress-jobs').appendChild(card);
+        subtitle.innerHTML = "5 unaddressed faults";
         card.style.display = 'block';
         document.getElementById("main-icon").style.display = 'none';
         $(modal).modal('hide');
@@ -81,8 +83,10 @@ function hideMainIcon() {
 
         var card = document.getElementById("fault-card-1");
         var modal = document.getElementById("fault-card-modal");
+        var subtitle = document.getElementById("unaddressed-faults");
       
         document.querySelector('.completed-jobs').appendChild(card);
+        subtitle.innerHTML = "5 unaddressed faults";
         card.style.display = 'block';
         document.getElementById("main-icon").style.display = 'none';
         $(modal).modal('hide');
