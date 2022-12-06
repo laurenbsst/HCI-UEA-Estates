@@ -48,7 +48,8 @@
                     <div class="fault-card-text">
                         <h3 id="fault-1-type">Light</h3>
                         <p id="fault-1-location">SCI, 2.38</p>
-                        <p id="fault-1-time">2022 12 03 12:51:23</p>
+                        <p id="fault-1-additional-info">The lightbulb has gone out and needs to be replaced.</p>
+                        <p id="fault-1-time">2022 12 03 19:44:56</p>
                     </div>
                 </button>
                 <div class="modal fade" id="fault-card-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,16 +61,17 @@
                         </div>
                         <div class="modal-body">
                           <p id="modal-fault-location"></p>
+                          <p id="modal-fault-additional-info"></p>
                           <p id="modal-fault-time"></p>
                           <form>
                             <label for="status">Status</label>
+                            <span id="exclamation-icon" class="material-icons">priority_high</span>
                             <select name="status" id="status-dropdown" onchange="hideIcon()">
                                 <option disabled selected value> -- select an option -- </option>
                                 <option>In-progress</option>
-                                <option>Complete</option>
+                                <option>Completed</option>
                             </select>
                           </form>
-                          <span id="exclamation-icon" class="material-icons">priority_high</span>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -87,7 +89,8 @@
                     <div class="fault-card-text">
                         <h3 id="fault-2-type">Window</h3>
                         <p id="fault-2-location">JSC LT 0.01</p>
-                        <p id="fault-2-time">2022 12 01 15:17:09</p>
+                        <p id="fault-2-additional-info">The handle of the window is stuck.</p>
+                        <p id="fault-2-time">2022 12 03 17:01:21</p>
                     </div>
                 </button>
             </div>
@@ -99,7 +102,8 @@
                     <div class="fault-card-text">
                         <h3 id="fault-3-type">Door</h3>
                         <p id="fault-3-location">LT 4</p>
-                        <p id="fault-3-time">2022 12 01 17:51:51</p>
+                        <p id="fault-3-additional-info">The lock is stuck, won't turn with correct key.</p>
+                        <p id="fault-3-time"> 2022 12 03 12:51:23</p>
                     </div>
                 </button>
             </div>
@@ -113,6 +117,7 @@
                     <div class="fault-card-text">
                         <h3 id="fault-4-type">Campus card scanner</h3>
                         <p id="fault-4-location">LSB PC LAB 1</p>
+                        <p id="fault-4-additional-info">Scanner is not making any noise.</p>
                         <p id="fault-4-time">2022 12 02 11:12:44</p>
                     </div>
                 </button>
@@ -125,7 +130,8 @@
                     <div class="fault-card-text">
                         <h3 id="fault-5-type">Light</h3>
                         <p id="fault-5-location">LT 2</p>
-                        <p id="fault-5-time">2022 12 03 17:01:21</p>
+                        <p id="fault-5-additional-info">The lightbulb is flickering.</p>
+                        <p id="fault-5-time">2022 12 01 17:51:51</p>
                     </div>
                 </button>
             </div>
@@ -137,7 +143,8 @@
                     <div class="fault-card-text">
                         <h3 id="fault-6-type">Window</h3>
                         <p id="fault-6-location">LIB 0.19</p>
-                        <p id="fault-6-time">2022 03 19:44:56</p>
+                        <p id="fault-6-additional-info">There is a small crack in the glass.</p>
+                        <p id="fault-6-time">2022 12 01 15:17:09</p>
                     </div>
                 </button>
             </div>
@@ -147,36 +154,40 @@
             <div class="col-md-4">
                 <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="fault-card-text-2">
-                        <h3>Fault 2 type</h3>
-                        <p>Room, building</p>
-                        <p>Date and time</p>
+                        <h3>Other</h3>
+                        <p>LT 1</p>
+                        <p>A hinge one of the desks is broken.</p>
+                        <p>2022 11 29 10:11:12</p>
                     </div>
                 </button>
             </div>
             <div class="col-md-4">
                 <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="fault-card-text-2">
-                        <h3>Fault 2 type</h3>
-                        <p>Room, building</p>
-                        <p>Date and time</p>
+                        <h3>Door</h3>
+                        <p>SCI 2.27</p>
+                        <p>The door is stuck/difficult to open.</p>
+                        <p>2022 11 29 09:30:21</p>
                     </div>
                 </button>
             </div>
             <div class="col-md-4">
                 <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="fault-card-text-2">
-                        <h3>Fault 2 type</h3>
-                        <p>Room, building</p>
-                        <p>Date and time</p>
+                        <h3>Campus card scanner</h3>
+                        <p>LIB 0.00</p>
+                        <p>Valid cards are being denied access.</p>
+                        <p>2022 11 28 18:21:10</p>
                     </div>
                 </button>
             </div>
             <div class="col-md-4">
                 <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="fault-card-text-2">
-                        <h3>Fault 2 type</h3>
-                        <p>Room, building</p>
-                        <p>Date and time</p>
+                        <h3>Window</h3>
+                        <p>NEWSCI 0.06</p>
+                        <p>The window pane has been smashed.</p>
+                        <p>2022 11 28 16:10:09</p>
                     </div>
                 </button>
             </div>
@@ -188,29 +199,34 @@
             <div class="col-md-4">
                 <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="fault-card-text-2">
-                        <h3>Fault 2 type</h3>
-                        <p>Room, building</p>
-                        <p>Date and time</p>
+                        <h3>Other</h3>
+                        <p>JSC 3.02</p>
+                        <p>A hinge one of the desks is broken.</p>
+                        <p>2022 11 26 10:19:31</p>
                     </div>
                 </button>
             </div>
             <div class="col-md-4">
                 <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="fault-card-text-2">
-                        <h3>Fault 2 type</h3>
-                        <p>Room, building</p>
-                        <p>Date and time</p>
+                        <h3>Other</h3>
+                        <p>NEWSCI 0.04</p>
+                        <p>The material of one of the seats is ripped.</p>
+                        <p>2022 11 25 20:21:55</p>
                     </div>
                 </button>
             </div>
             <div class="col-md-4">
                 <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="fault-card-text-2">
-                        <h3>Fault 2 type</h3>
-                        <p>Room, building</p>
-                        <p>Date and time</p>
+                        <h3>Door</h3>
+                        <p>LIB 0.22</p>
+                        <p>The handle is coming away from the door.</p>
+                        <p>2022 11 24 15:22:13</p>
                     </div>
                 </button>
+            </div>
+            <div class="col-md-4 completed-jobs">
             </div>
         </div>
     </div>
