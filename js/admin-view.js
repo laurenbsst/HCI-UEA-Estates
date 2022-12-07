@@ -1,39 +1,32 @@
-function checkStatus() {
-    document.getElementById("exclamation-icon").style.display = 'none';
+function hideTechnicianIcon() {
+    document.getElementById("exclamation-icon-1").style.display = 'none';
 }
-
-function hideIcon() {
-    document.getElementById("exclamation-icon").style.display = 'none';
+function hidePriorityIcon() {
+    document.getElementById("exclamation-icon-2").style.display = 'none';
 }
 
 function hideMainIcon() {
 
-    var selected_value = $('#status-dropdown').val();
+    var selected_technician = $('#technician-dropdown').val();
+    var selected_priority = $('#priority-dropdown').val();
 
-    if(selected_value === null){
+    if(selected_technician === null & selected_priority === null){
         alert('You have not made any changes!');
     }
-    else if(selected_value === 'In-progress') {
+    else if(selected_technician === null){
+        alert('Please select a technician.')
+    }
+    else if(selected_priority === null){
+        alert('Please select a priority.')
+    }
+    else {
         document.getElementById("fault-card-1").style.display = 'none';
 
         var card = document.getElementById("fault-card-1");
         var modal = document.getElementById("fault-card-modal");
         var subtitle = document.getElementById("unaddressed-faults");
 
-        document.querySelector('.in-progress-jobs').appendChild(card);
-        subtitle.innerHTML = "5 unaddressed faults";
-        card.style.display = 'block';
-        document.getElementById("main-icon").style.display = 'none';
-        $(modal).modal('hide');
-    }
-    else {
-        document.getElementById("fault-card-1").style.display = 'flex';
-
-        var card = document.getElementById("fault-card-1");
-        var modal = document.getElementById("fault-card-modal");
-        var subtitle = document.getElementById("unaddressed-faults");
-      
-        document.querySelector('.completed-jobs').appendChild(card);
+        document.querySelector('.faults-with-technician').appendChild(card);
         subtitle.innerHTML = "5 unaddressed faults";
         card.style.display = 'block';
         document.getElementById("main-icon").style.display = 'none';
@@ -125,46 +118,6 @@ $(document).on("click", "#fault-card-9", function () {
     var faultLocation = $("#fault-9-location").text();
     var faultInfo = $("#fault-9-additional-info").text();
     var faultTime = $("#fault-9-time").text();
-    $("#modal-card-title").text(faultType);
-    $("#modal-fault-location").text(faultLocation);
-    $("#modal-fault-additional-info").text(faultInfo);
-    $("#modal-fault-time").text(faultTime);
-});
-$(document).on("click", "#fault-card-10", function () {
-    var faultType = $("#fault-10-type").text();
-    var faultLocation = $("#fault-10-location").text();
-    var faultInfo = $("#fault-10-additional-info").text();
-    var faultTime = $("#fault-10-time").text();
-    $("#modal-card-title").text(faultType);
-    $("#modal-fault-location").text(faultLocation);
-    $("#modal-fault-additional-info").text(faultInfo);
-    $("#modal-fault-time").text(faultTime);
-});
-$(document).on("click", "#fault-card-11", function () {
-    var faultType = $("#fault-11-type").text();
-    var faultLocation = $("#fault-11-location").text();
-    var faultInfo = $("#fault-11-additional-info").text();
-    var faultTime = $("#fault-11-time").text();
-    $("#modal-card-title").text(faultType);
-    $("#modal-fault-location").text(faultLocation);
-    $("#modal-fault-additional-info").text(faultInfo);
-    $("#modal-fault-time").text(faultTime);
-});
-$(document).on("click", "#fault-card-12", function () {
-    var faultType = $("#fault-12-type").text();
-    var faultLocation = $("#fault-12-location").text();
-    var faultInfo = $("#fault-12-additional-info").text();
-    var faultTime = $("#fault-12-time").text();
-    $("#modal-card-title").text(faultType);
-    $("#modal-fault-location").text(faultLocation);
-    $("#modal-fault-additional-info").text(faultInfo);
-    $("#modal-fault-time").text(faultTime);
-});
-$(document).on("click", "#fault-card-13", function () {
-    var faultType = $("#fault-13-type").text();
-    var faultLocation = $("#fault-13-location").text();
-    var faultInfo = $("#fault-13-additional-info").text();
-    var faultTime = $("#fault-13-time").text();
     $("#modal-card-title").text(faultType);
     $("#modal-fault-location").text(faultLocation);
     $("#modal-fault-additional-info").text(faultInfo);

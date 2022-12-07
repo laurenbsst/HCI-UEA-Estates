@@ -1,175 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/global-styles.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/global-styles.css" />
+    <script src="../js/admin-view.js"></script>
     <title>UEA Estates - Admin view</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand">
-                <img src="../images/UEA_2016_Logo.png" height="28" alt="UEA logo">
-            </a>
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active">Home</a>
-                    <a href="#" class="nav-item nav-link">Unaddressed faults</a>
-                    <a href="#" class="nav-item nav-link">Faults sent to technicians</a>
-                </div>
-            </div>
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand">
+          <img src="../images/UEA_2016_Logo.png" height="28" alt="UEA logo" />
+        </a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav">
+            <a href="#" class="nav-item nav-link active">Home</a>
+            <a href="#with-technician" class="nav-item nav-link"
+              >Faults sent to technician</a
+            >
+          </div>
         </div>
+      </div>
     </nav>
     <div class="container-sm">
-        <div class="row">
-            <h1 class="title">Reported faults</h1>
+      <div class="row">
+        <h1 class="title">Reported faults</h1>
+      </div>
+      <div class="row">
+        <h3 class="subtitle" id="unaddressed-faults">6 unaddressed faults</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-1"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="icon-container">
+              <span id="main-icon" class="material-icons">priority_high</span>
+            </div>
+            <div class="fault-card-text">
+              <h3 id="fault-1-type">Light</h3>
+              <p id="fault-1-location">SCI, 2.38</p>
+              <p id="fault-1-additional-info">
+                The lightbulb has gone out and needs to be replaced.
+              </p>
+              <p id="fault-1-time">2022 12 03 19:44:56</p>
+            </div>
+          </button>
+          <div
+            class="modal fade"
+            id="fault-card-modal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-card-title"></h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <p id="modal-fault-location"></p>
+                  <p id="modal-fault-additional-info"></p>
+                  <p id="modal-fault-time"></p>
+                  <form>
+                    <label for="technician">Technician</label>
+                    <span id="exclamation-icon-1" class="material-icons"
+                      >priority_high</span
+                    >
+                    <select
+                      name="technician"
+                      id="technician-dropdown"
+                      onchange="hideTechnicianIcon()"
+                    >
+                      <option disabled selected value>
+                        -- select an option --
+                      </option>
+                      <option>James</option>
+                      <option>Martha</option>
+                      <option>Simon</option>
+                    </select>
+                    <label for="priority">Priority</label>
+                    <span id="exclamation-icon-2" class="material-icons"
+                      >priority_high</span
+                    >
+                    <select
+                      name="priority"
+                      id="priority-dropdown"
+                      onchange="hidePriorityIcon()"
+                    >
+                      <option disabled selected value>
+                        -- select an option --
+                      </option>
+                      <option>Low</option>
+                      <option>Medium</option>
+                      <option>High</option>
+                    </select>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary button-colour"
+                    onclick="hideMainIcon()"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row">
-            <h3 class="subtitle">6 unaddressed faults</h3>
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-2"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="icon-container">
+              <span class="material-icons">priority_high</span>
+            </div>
+            <div class="fault-card-text">
+              <h3 id="fault-2-type">Window</h3>
+              <p id="fault-2-location">JSC LT 0.01</p>
+              <p id="fault-2-additional-info">
+                The handle of the window is stuck.
+              </p>
+              <p id="fault-2-time">2022 12 03 17:01:21</p>
+            </div>
+          </button>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="icon-container">
-                        <span class="material-icons">priority_high</span>
-                    </div>
-                    <div class="fault-card-text">
-                        <h3 id="fault-1-type">Light</h3>
-                        <p id="fault-1-location">SCI, 2.38</p>
-                        <p id="fault-1-additional-info">The lightbulb has gone out and needs to be replaced.</p>
-                        <p id="fault-1-time">2022 12 03 19:44:56</p>
-                    </div>
-                </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Fault type</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          ...
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary button-colour">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-3"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="icon-container">
+              <span class="material-icons">priority_high</span>
             </div>
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="icon-container">
-                        <span class="material-icons">priority_high</span>
-                    </div>
-                    <div class="fault-card-text">
-                        <h3 id="fault-2-type">Window</h3>
-                        <p id="fault-2-location">JSC LT 0.01</p>
-                        <p id="fault-2-additional-info">The handle of the window is stuck.</p>
-                        <p id="fault-2-time">2022 12 03 17:01:21</p>
-                    </div>
-                </button>
+            <div class="fault-card-text">
+              <h3 id="fault-3-type">Door</h3>
+              <p id="fault-3-location">LT 4</p>
+              <p id="fault-3-additional-info">
+                The lock is stuck, won't turn with correct key.
+              </p>
+              <p id="fault-3-time">2022 12 03 12:51:23</p>
             </div>
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="icon-container">
-                        <span class="material-icons">priority_high</span>
-                    </div>
-                    <div class="fault-card-text">
-                        <h3 id="fault-3-type">Door</h3>
-                        <p id="fault-3-location">LT 4</p>
-                        <p id="fault-3-additional-info">The lock is stuck, won't turn with correct key.</p>
-                        <p id="fault-3-time"> 2022 12 03 12:51:23</p>
-                    </div>
-                </button>
-            </div>
+          </button>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="icon-container">
-                        <span class="material-icons">priority_high</span>
-                    </div>
-                    <div class="fault-card-text">
-                        <h3 id="fault-4-type">Campus card scanner</h3>
-                        <p id="fault-4-location">LSB PC LAB 1</p>
-                        <p id="fault-4-additional-info">Scanner is not making any noise.</p>
-                        <p id="fault-4-time">2022 12 02 11:12:44</p>
-                    </div>
-                </button>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-4"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="icon-container">
+              <span class="material-icons">priority_high</span>
             </div>
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="icon-container">
-                        <span class="material-icons">priority_high</span>
-                    </div>
-                    <div class="fault-card-text">
-                        <h3 id="fault-5-type">Light</h3>
-                        <p id="fault-5-location">LT 2</p>
-                        <p id="fault-5-additional-info">The lightbulb is flickering.</p>
-                        <p id="fault-5-time">2022 12 01 17:51:51</p>
-                    </div>
-                </button>
+            <div class="fault-card-text">
+              <h3 id="fault-4-type">Campus card scanner</h3>
+              <p id="fault-4-location">LSB PC LAB 1</p>
+              <p id="fault-4-additional-info">
+                Scanner is not making any noise.
+              </p>
+              <p id="fault-4-time">2022 12 02 11:12:44</p>
             </div>
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="icon-container">
-                        <span class="material-icons">priority_high</span>
-                    </div>
-                    <div class="fault-card-text">
-                        <h3 id="fault-6-type">Window</h3>
-                        <p id="fault-6-location">LIB 0.19</p>
-                        <p id="fault-6-additional-info">There is a small crack in the glass.</p>
-                        <p id="fault-6-time">2022 12 01 15:17:09</p>
-                    </div>
-                </button>
-            </div>
+          </button>
         </div>
-        <h3 class="subtitle">Faults sent to a technician</h3>
-        <div class="row">
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="fault-card-text-2">
-                        <h3>Window</h3>
-                        <p>JSC 1.03</p>
-                        <p>Handle is stuck shut</p>
-                        <p>2022 11 29 20:05:06</p>
-                    </div>
-                </button>
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-5"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="icon-container">
+              <span class="material-icons">priority_high</span>
             </div>
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="fault-card-text-2">
-                        <h3>Other</h3>
-                        <p>LIB 0.23</p>
-                        <p>Chair leg is broken</p>
-                        <p>2022 11 29 13:22:12</p>
-                    </div>
-                </button>
+            <div class="fault-card-text">
+              <h3 id="fault-5-type">Light</h3>
+              <p id="fault-5-location">LT 2</p>
+              <p id="fault-5-additional-info">The lightbulb is flickering.</p>
+              <p id="fault-5-time">2022 12 01 17:51:51</p>
             </div>
-            <div class="col-md-4">
-                <button class="fault-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="fault-card-text-2">
-                        <h3>Door</h3>
-                        <p>NEWSCI 0.07</p>
-                        <p>Door window pane is cracked</p>
-                        <p>2022 11 28 15:17:32</p>
-                    </div>
-                </button>
-            </div>
+          </button>
         </div>
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-6"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="icon-container">
+              <span class="material-icons">priority_high</span>
+            </div>
+            <div class="fault-card-text">
+              <h3 id="fault-6-type">Window</h3>
+              <p id="fault-6-location">LIB 0.19</p>
+              <p id="fault-6-additional-info">
+                There is a small crack in the glass.
+              </p>
+              <p id="fault-6-time">2022 12 01 15:17:09</p>
+            </div>
+          </button>
+        </div>
+      </div>
+      <h3 class="subtitle" id="with-technician">Faults sent to technician</h3>
+      <div class="row">
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-7"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="fault-card-text">
+              <h3 id="fault-7-type">Other</h3>
+              <p id="fault-7-location">LT 1</p>
+              <p id="fault-7-additional-info">
+                A hinge one of the desks is broken.
+              </p>
+              <p id="fault-7-time">2022 11 29 10:11:12</p>
+            </div>
+          </button>
+        </div>
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-8"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="fault-card-text">
+              <h3 id="fault-8-type">Door</h3>
+              <p id="fault-8-location">SCI 2.27</p>
+              <p id="fault-8-additional-info">
+                The door is stuck/difficult to open.
+              </p>
+              <p id="fault-8-time">2022 11 29 09:30:21</p>
+            </div>
+          </button>
+        </div>
+        <div class="col-md-4">
+          <button
+            class="fault-card"
+            id="fault-card-9"
+            data-bs-toggle="modal"
+            data-bs-target="#fault-card-modal"
+          >
+            <div class="fault-card-text">
+              <h3 id="fault-9-type">Campus card scanner</h3>
+              <p id="fault-9-location">LIB 0.00</p>
+              <p id="fault-9-additional-info">
+                Valid cards are being denied access.
+              </p>
+              <p id="fault-9-time">2022 11 28 18:21:10</p>
+            </div>
+          </button>
+        </div>
+        <div class="col-md-4 faults-with-technician"></div>
+      </div>
     </div>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>
+

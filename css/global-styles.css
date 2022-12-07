@@ -6,6 +6,7 @@ html, body {
 .fault-card {
     background-color: #EEEEEE;
     margin-bottom: 20px;
+    padding-top: 5px;
     border-radius: 3%;
     border: none;
     width: 300px;
@@ -35,4 +36,7 @@ html, body {
 .button-colour {
     background-color: #65a391 !important;
     border-color: #65a391 !important;
+}
+select {
+    width: 200px;
 }
