@@ -11,6 +11,10 @@ html, body {
     border: none;
     width: 300px;
 }
+.fault-card:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+}
 .col-md-4 {
     display: flex;
     justify-content: center;
