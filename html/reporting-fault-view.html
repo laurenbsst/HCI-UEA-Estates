@@ -36,10 +36,13 @@
             <h4>Fill out the form below to submit a report of a fault to the UEA Estates team.</h4>
             <div class="content">
                 <div class="form-container">
-                    <form id="report-form" onsubmit="validateForm()">
+                    <form id="report-form" onsubmit="return validateForm()">
                         <div class="form-group">
                             <label for="type-of-fault">Type of fault</label>
                             <select class="form-control" id="type-of-fault" required>
+                              <option disabled selected value>
+                                -- select an option --
+                              </option>
                               <option>Light</option>
                               <option>Window</option>
                               <option>Door</option>
@@ -49,11 +52,14 @@
                           </div>
                         <div class="form-group">
                             <label for="other">If you selected 'other', please provide more details here</label>
-                            <input type="text" class="form-control" id="other">
+                            <input type="text" class="form-control" id="other-fault">
                         </div>
                         <div class="form-group">
                             <label for="building">Building</label>
                             <select class="form-control" id="building" required>
+                              <option disabled selected value>
+                                -- select an option --
+                              </option>
                               <option>Julian Study Centre</option>
                               <option>New SCI</option>
                               <option>Earlham Hall</option>
@@ -66,10 +72,14 @@
                           <div class="form-group">
                             <label for="room">Room</label>
                             <select class="form-control" id="room" required>
-                              <option>SCI 2.38</option>
-                              <option>another room here</option>
-                              <option>another room here</option>
-                              <option>another room here</option>
+                              <option disabled selected value>
+                                -- select an option --
+                              </option>
+                              <option>2.38</option>
+                              <option>1.03</option>
+                              <option>1.06</option>
+                              <option>0.01</option>
+                              <option>0.04</option>
                             </select>
                           </div>
                           <div class="form-group">
